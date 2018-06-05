@@ -1,1 +1,1 @@
-C:/Integrity/Integrity/start_script.py > C:/Integrity/Integrity/filelist.txt
+Path/To/start_script.py > Path/To/Integrity/filelist.txt
