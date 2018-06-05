@@ -1,0 +1,15 @@
+LOG FILE 
+DATE: 2018-05-31
+
+
+FILES REMOVED: 
+
+
+
+BACKUPS CREATED: 
+
+There is already a backup for C:/Integrity_Test/TestGenius/Integrity/backups/2018-05-31
+
+
+BACKUPS REMOVED: 
+
