@@ -1,15 +1,13 @@
 '''
-Integrity
+END_SCRIPT
 by Riley Mulvihill
 
-Integrity is a stand alone program that ensures the integrity of a file folder.
-It primarily does 4 actions:
-1. Creates a correct configuration record
-2. Remove unwanted files
-3. Creates Backups
-4. Logs actions
+End_Script is the main framework to the integrity program.
+It primarily does two actions:
+1. Remove unwanted files
+2. Creates Backups
 
-Integrity is set by default to generate a correct file configuration at 7AM and validate integrity at 8AM,10AM,12AM,2PM, and 4pm
+End_Script should be run at least on a daily basis after Start_Script.py
 
 '''
 
@@ -17,7 +15,7 @@ Integrity is set by default to generate a correct file configuration at 7AM and 
 #Import Modules
 import os
 import shutil
-from datetime import datetime
+from datetime import datetime, date
 from time import sleep
 from Imports import *
 from subprocess import Popen
@@ -207,7 +205,7 @@ def remove_files(source, destination, filelist):
 def run_actions():
     #Create Logs
     print ('LOG FILE ')
-    print ('DATE: ' + str(datetime.date.today()))
+    print ('DATE: ' + str(date.today()))
     print('')
     print('')
     print('FILES REMOVED: ')
