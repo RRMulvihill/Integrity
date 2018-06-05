@@ -1,1 +1,2 @@
 # Integrity
+Integrity is a program that ensures the integrity of a file folder, created specifically to protect the OPAC testing server for Potomac Job Corps.
