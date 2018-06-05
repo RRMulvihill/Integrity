@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 filelist = (open("filelist.txt").readline())
 path = '' #path/to/mainfolder
 integrity_path = path + "Integrity/"
