@@ -20,8 +20,29 @@ from time import sleep
 from Imports import *
 from subprocess import Popen
 
+if os.path.isfile('filelist.txt'):
+    filelist = open('filelist.txt')
+else:
+    filelist = open('filelist.txt','w')
+
+
 
 #Declare Functions
+
+def compare_logs(log1,log2):
+    change_log = []
+    for file in log1:
+        if file not in log2:
+            change_log.append(file)
+    return change_log
+
+def change_log(source):
+    files = []
+    for dirName, subdirList, fileList in os.walk(source):
+        #print('Found Directory: %s' % dirName)
+        for fname in fileList:
+            files.append(fname)
+    return( files)
 
 def compare_changes(original, new):
     '''
@@ -131,7 +152,7 @@ def create_filelist(source):
     filelist = []
     for file in os.listdir(source):
         filelist.append(file)
-    print(filelist)
+    return (filelist)
 
 
 def copytree(source, destination, symlinks=False, ignore=None):
@@ -204,38 +225,36 @@ def remove_files(source, destination, filelist):
 
 def run_actions():
     #Create Logs
-    print ('LOG FILE ')
-    print ('DATE: ' + str(date.today()))
-    print('')
-    print('')
-    print('FILES REMOVED: ')
-    print('')
-    remove_files(path, date_path, filelist)
-    print('')
-    print('')
-    print('BACKUPS CREATED: ')
-    print('')
+    print ('LOG FILE\nDATE: ' + str(date.today()) + '\n\n')
+    print('FILES REMOVED: \n')
+    filelist = open('filelist.txt')
+    remove_files(path, date_path,filelist)
+    filelist.close()
+    print('\n\nBACKUPS CREATED: \n')
     create_backups(path,backup_destination,ignore_folder = ignore_folder)
-    print('')
-    print('')
-    print('BACKUPS REMOVED: ')
-    print('')
+    print('\n\nBACKUPS REMOVED: \n')
     clean_backups(integrity_path + "backups/",10)
 
 def run():
     while(1==1):
         time = datetime.now()
         print(time)
-        runtimes = (8,10,12,14,16)
+        runtimes = (8,9,13,14,17)
         if time.hour == 7:
-            create_filelist(path)
+            print('yo')
+            file_list = open('filelist.txt','w')
+            file_list.write(str(create_filelist(path)))
+            file_list.close()
         if time.hour in runtimes:
-            run_actions()
+            log = open(log_destination + str(date.today()), 'w')
+            log.write(run_actions())
+            log.close()
         sleep (60*(60-datetime.now().minute))
  
 #Run
 
 run()
+
 
 
 
