@@ -1,3 +1,13 @@
+'''
+IMPORTS
+by Riley Mulvihill
+
+These are the hardcoded variables used by
+Start_Script.py and End_Script.py
+
+If the TestGenius directory is moved,
+THESE PATHS MUST BE UPDATED.
+'''
 from datetime import datetime, date
 filelist = (open("filelist.txt").readline())
 path = '' #path/to/mainfolder
