@@ -39,6 +39,6 @@ There are built in help functions to assist in its use.
 Automatic Run:
 Integrity has the ability to run as a sheduled background task at user defined intervals.
 I have run into issues with Windows Task Sheduler creating a filelist but I have left the
-auto_run funcion in the program. 
+auto_run function in the program. 
 
 
